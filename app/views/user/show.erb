@@ -1,0 +1,14 @@
+  
+<h1><%= @user.name %>'s Book</h1>
+<p><% @user.books.each do |book| %>
+<ul>
+  <li><h4>Title: </h4><%= book.title %></li>
+  <li><h4>Author Name: </h4><%= book.author_name %></li>
+  <li><h4>Quote From The Book: </h4><%= book.content %></li>
+</ul>
+<br>
+<% end %>
+  <a href="/book/new"><input type="button" value="Create a New Book"></a>
+  <a href="/book/index<%= current_user.id %>"><input type="button" value="View a Complete List of User Books"></a>
+  <a href="/user/<%= current_user.id %>/edit"><input type="button" value="Edit User Details"></a>
+</p>

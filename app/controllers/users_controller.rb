@@ -37,4 +37,20 @@ class UsersController < ApplicationController
         redirect '/'
     end
 
+    get '/user' do
+        redirect "/user/#{current_user.id}"
+    end
+
+    get '/user/:id' do
+        not_logged_in?
+        
+        @user = User.find_by(id: params[:id])
+        if @user.id == current_user.id
+            erb :"user/show"
+        else
+            redirect "/user/#{current_user.id}"
+        end
+
+    end
+
 end
