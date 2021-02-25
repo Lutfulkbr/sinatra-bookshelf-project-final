@@ -4,5 +4,5 @@ use Rack::MethodOverride
 
 
 # use Bookscontroller
-# use UsersController
+use UsersController
 run ApplicationController
