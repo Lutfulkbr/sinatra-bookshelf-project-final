@@ -5,14 +5,13 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.new(params[:user])
+        @user = User.new(params[:user])
         
         if @user.save
             session[:user_id] = @user.id
-            flash[:info] = "You've been seccessfully registered!"
-            redirect "/user/#{user.id}"
+            redirect "/user/#{@user.id}"
         else
-            flash[:info] = "There was an error, Please complete the form to sign up!"
+            @errors = @user.errors.full_messages.join(" - ")
             erb :"user/new"
         end
     end
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/user'
         else
-            flash[:info] = "The username or password didn't match. Please try again"
+            @errors = @user.errors.full_messages.join(" - ")
             redirect '/login'
         end
     end
@@ -43,10 +42,34 @@ class UsersController < ApplicationController
 
     get '/user/:id' do
         not_logged_in?
-        
+
         @user = User.find_by(id: params[:id])
         if @user.id == current_user.id
             erb :"user/show"
+        else
+            redirect "/user/#{current_user.id}"
+        end
+
+    end
+
+    get '/user/:id/edit' do
+        not_logged_in?
+        @user = User.find_by(id: params[:id])
+        if @user.id == current_user.id
+            erb :'user/edit'
+        else
+            redirect "/user/#{current_user.id}"
+        end
+    end
+
+    patch '/user/:id/edit' do
+
+        not_logged_in?
+
+        @user = User.find(params[:id])
+        if @user.id == current_user.id
+            @user.update(params[:user])
+            redirect "/user/#{@user.id}"
         else
             redirect "/user/#{current_user.id}"
         end

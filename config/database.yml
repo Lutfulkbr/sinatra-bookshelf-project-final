@@ -4,4 +4,4 @@ default: &default
 
 development:
   <<: *default
-  database: development.sqlite
+  database: db/development.sqlite
