@@ -3,6 +3,6 @@ require_relative 'config/environment'
 use Rack::MethodOverride
 
 
-# use Bookscontroller
+use BooksController
 use UsersController
 run ApplicationController
