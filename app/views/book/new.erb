@@ -1,8 +1,9 @@
-<h2>Create Your Book Here:</h2>
-
-<form method="POST" action="/book">
-<label>Title: <input type="text" name="title"></label>
-<label>Author Name: <input type="text" name="author_name"></label>
-<label>Quote From The Book: <input type="text" name="content"></label>
-<input type="submit" value="Create">
-</form>
+<h1>Create a New Book</h1>
+<h3 style="color:red;"><%= @errors %></h3> 
+<form method="POST" action="/book"> 
+  Title: <input type="text" name="title">
+  Author Name: <input type="text" name="author_name">
+  Quote: <input type="text" name="content"><br><br>
+  <input type="submit" value="Create a Book">
+</form> 
+<a href="/user/<%= current_user.id %>"><input type="button" value="Back"></a>
