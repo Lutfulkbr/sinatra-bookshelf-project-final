@@ -55,18 +55,18 @@ class BooksController < ApplicationController
         not_logged_in?
         @book = Book.find_by(id: params[:id])
         if @book && @book.user_id == current_user.id
-            erb :delete
+            erb :"book/delete"
         end
     end
 
     delete '/book/:id' do
         not_logged_in?
-        # if params.has_key?("ok")
+        if params.has_key?("ok")
             @book = Book.find_by(id: params[:id])
             if @book && @book.user_id == current_user.id
                 @book.destroy
             end
-        # end
+        end
         redirect "/user/#{current_user.id}"
     end
 

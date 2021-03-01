@@ -6,10 +6,11 @@
   <h4>Author Name: </h4><%= book.author_name %>
   <h4>Quote From The Book: </h4><%= book.content %><br><br>
   <a href="/book/<%= book.id %>/edit"><input type="button" value="Edit"></a><br><br>
-  <form action="/book/<%= book.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
-  </form><br><br><br>
+  <% # <form action="/book/<%= book.id %>" method="POST"> %>
+  <% # <input type="hidden" name="_method" value="DELETE"> %>
+  <a href="/delete/<%= book.id %>"><input type="submit" value="Delete"></a>
+  <% # </form> %>
+  <br><br><br>
 <% end %>
   <a href="/book/new"><input type="button" value="Create New Book"></a>
   <a href="/book"><input type="button" value="View a Complete List of User Books"></a>
