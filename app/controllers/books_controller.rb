@@ -14,7 +14,7 @@ class BooksController < ApplicationController
     post '/book' do
         book = current_user.books.new(params)
         if book.save
-            redirect "/user/#{current_user.id}"
+            redirect "/book/#{book.id}"
         else
             @errors = book.errors.full_messages.join(" - ")
             erb :"book/new"
@@ -27,7 +27,7 @@ class BooksController < ApplicationController
         if @book && @book.user_id == current_user.id
             erb :"book/show"
         else
-            redirect "/book"
+            redirect "/user/#{current_user.id}"
         end
     end
 
@@ -49,6 +49,25 @@ class BooksController < ApplicationController
         end
 
         redirect "/book/#{@book.id}"
+    end
+
+    get '/delete/:id' do
+        not_logged_in?
+        @book = Book.find_by(id: params[:id])
+        if @book && @book.user_id == current_user.id
+            erb :delete
+        end
+    end
+
+    delete '/book/:id' do
+        not_logged_in?
+        # if params.has_key?("ok")
+            @book = Book.find_by(id: params[:id])
+            if @book && @book.user_id == current_user.id
+                @book.destroy
+            end
+        # end
+        redirect "/user/#{current_user.id}"
     end
 
 end

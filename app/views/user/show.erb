@@ -4,10 +4,15 @@
 <p><% @user.books.each do |book| %>
   <h4>Title: </h4><%= book.title %>
   <h4>Author Name: </h4><%= book.author_name %>
-  <h4>Quote From The Book: </h4><%= book.content %><br><br><br><br>
+  <h4>Quote From The Book: </h4><%= book.content %><br><br>
+  <a href="/book/<%= book.id %>/edit"><input type="button" value="Edit"></a><br><br>
+  <form action="/book/<%= book.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+  </form><br><br><br>
 <% end %>
-  <a href="/book/new"><input type="button" value="Create a New Book"></a>
-  <a href="/book/index<%= current_user.id %>"><input type="button" value="View a Complete List of User Books"></a>
+  <a href="/book/new"><input type="button" value="Create New Book"></a>
+  <a href="/book"><input type="button" value="View a Complete List of User Books"></a>
   <a href="/user/<%= current_user.id %>/edit"><input type="button" value="Edit User Details"></a><br><br>
   <a href="/logout"><input type="button" value="Log Out"></a>
 </p>
