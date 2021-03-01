@@ -1,12 +1,12 @@
 <h1>Book Details</h1>
 
 <h4>Title: </h4><%= @book.title %>
-<h4>Author Name: </h4><%= @booke.author_name %>
+<h4>Author Name: </h4><%= @book.author_name %>
 <h4>Quote: </h4><%= @book.content %>
 <br>
 <a href="/book/<%= @book.id %>/edit"><input type="button" value="Edit"></a>
 <form action="/book/<%= @book.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE" />
+  <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
 </form><br>
 <a><input type="button" value="Back" onclick="history.back()"/></a>
