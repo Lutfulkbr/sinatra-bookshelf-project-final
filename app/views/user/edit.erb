@@ -1,6 +1,7 @@
 <h2>Edit Your Information Here:</h2>
 
 <form action="/user/<%= current_user.id %>/edit" method="POST">
+
 <input type="hidden" name="_method" value="PATCH">
 <label>Name: <input type="text" name="user[name]" value="<%= @user.name %>"></label>
 <label>Username: <input type="text" name="user[username]" value="<%= @user.username %>"></label>

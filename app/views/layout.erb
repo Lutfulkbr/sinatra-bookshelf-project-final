@@ -9,8 +9,8 @@
 
 <% if logged_in? %>
 <div align="right">
-  <h3>You are logged in as <%= current_user.username %></h3>
-  <a href="/user/<%= current_user.id %>">Home</a>
+  <h3 style="color:grey">You are logged in as <%= current_user.username %></h3>
+  <a style="color:green" href="/user/<%= current_user.id %>">Home</a>
   <a href="/logout">Logout</a>
 </div>
 <% end %>

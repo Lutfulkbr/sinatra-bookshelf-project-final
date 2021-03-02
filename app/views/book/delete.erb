@@ -1,9 +1,9 @@
 <div align="center">
-<p style="color:red">Are you sure you want to delete:</p>
+<p style="color:red">Are you sure you want to delete?</p>
 <blockquote><p><%= @book.title %></p></blockquote>
 <form action="/book/<%= @book.id %>" method="POST">
 <input name="_method" type="hidden" value="DELETE">
-<button type="submit" name="ok">OK</button>
+<button type="submit" name="ok">YES</button>
 <button type="submit" name="cancel">Cancel</button>
 </form>
 </div>

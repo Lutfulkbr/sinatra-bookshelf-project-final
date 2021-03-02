@@ -3,7 +3,7 @@
   <input type="hidden" name="_method" value="PATCH">
   Title: <input type="text" name="book[title]" value="<%= @book.title %>"><br>
   Author Name: <input type="text" name="book[author_name]" value="<%= @book.author_name %>"><br>
-  Quote: <input type="text" name="book[quote]" value="<%= @book.content %>"><br><br>
-  <input type="submit" value="Update">
+  Quote: <input type="text" name="book[content]" value="<%= @book.content %>"><br><br>
+    <input type="submit" value="Update"><br><br>
 </form> 
-<a href="/user/<%= @current_user.id %>"><input type="button" value="BACK"></a>
+<a href="/user/<%= @current_user.id %>"><input type="button" value="Back"></a>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    has_many :books, dependent: :destroy
+    has_many :books
 
     validates :username, presence: true
     validates :username, uniqueness: true
