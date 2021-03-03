@@ -4,6 +4,8 @@ Bookshelf is a library for books collection to manage and keep track of their cu
 
 Installation
 
+First clone this repository to your computer and cd into that directory.
+
 In your terminal run 'bundle install' command to install all the necessary GEMS, then run 'rake db:migrate' and then followed by 'rake db:seed'. You shouldn't be running 'rake db:seed' more than once, it'll occupy your database with same data twice.
 
 then run 'shotgun' in your terminal in order to get an external port, usually port:9393. Then open your browser and type 'localhost:9393' it'll start the app in your browser.
