@@ -1,7 +1,6 @@
-
-<h1>All User Books: </h1>
+<div style="text-align:center;">
+<h1>List Of Books: </h1>
 <% @books.each do |book| %>
-    <h3 style="color:red;"><%= @errors %></h3>
     <h4>Title: </h4><%= book.title %>
     <h4>Author Name: </h4><%= book.author_name %>
     <h4>Quote From The Book: </h4><%= book.content %><br><br>
@@ -13,3 +12,4 @@
   <% end %>
 <% end %>
 <a><input type="button" value="Back" onclick="history.back()"></a>
+</div>

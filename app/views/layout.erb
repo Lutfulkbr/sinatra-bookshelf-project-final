@@ -2,16 +2,16 @@
 <html>
 <head>
 <title>Bookshelf!</title>
-<link rel="stylesheet" href="/stylesheets/style.css"/>
+<link rel="stylesheet" href="./stylesheets/style.css"/>
 </head>
 
-<body>
+<body style="background-color:#f0e4d7">
 
 <% if logged_in? %>
 <div align="right">
-  <h3 style="color:grey">You are logged in as <%= current_user.username %></h3>
+  <h3 style="color:white">You are logged in as <%= current_user.username %></h3>
   <a style="color:green" href="/user/<%= current_user.id %>">Home</a>
-  <a href="/logout">Logout</a>
+  <a style="color:red" href="/logout">Logout</a>
 </div>
 <% end %>
 <%= yield %>

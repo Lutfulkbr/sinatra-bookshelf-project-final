@@ -1,4 +1,4 @@
-  
+<div style="text-align:center">
 <h1><%= @user.name %>'s Books</h1>
 <%= @errors %>
 <p><% @user.books.each do |book| %>
@@ -9,7 +9,8 @@
   <a href="/delete/<%= book.id %>"><input type="submit" value="Delete"></a>
   <br><br>
 <% end %>
-  <a href="/book"><p style="color:grey">View The Complete List of Books</p></a>
+  <a href="/book"><p>View The List of Books</p></a>
   <a href="/user/<%= current_user.id %>/edit"><p>Edit User Details</p></a>
   <a href="/book/new"><input type="button" value="Create New Book"></a>
 </p>
+</div>

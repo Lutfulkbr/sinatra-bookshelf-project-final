@@ -43,7 +43,7 @@ class BooksController < ApplicationController
 
     patch '/book/:id/edit' do
         not_logged_in?
-        @book = Book.find_by(id: params[:id])
+        @book = find_book
         if @book && @book.user_id == current_user.id
             @book.update(params[:book])
         end
